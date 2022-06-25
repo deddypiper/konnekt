@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
 
-import signinImage from '../assets/signup.jpg';
+import signinImage from '../assets/fine.jpg';
 
 const cookies = new Cookies();
 
@@ -28,8 +28,8 @@ const Auth = () => {
 
         const { username, password, phoneNumber, avatarURL } = form;
 
-        const URL = 'https://localhost:5000/auth';
-        // const URL = 'https://konnektt.herokuapp.com/auth';
+        // const URL = 'https://localhost:5000/auth';
+        const URL = 'https://konnektt.herokuapp.com/auth';
 
         const { data: { token, userId, hashedPassword, fullName } } = await axios.post(`${URL}/${isSignup ? 'signup' : 'login'}`, {
             username, password, fullName: form.fullName, phoneNumber, avatarURL,
